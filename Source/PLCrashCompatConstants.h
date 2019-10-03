@@ -49,7 +49,6 @@
  * ensure this doesn't break inclusion of the header in which the enum identifiers may be defined, we explicitly
  * include the compact unwind header.
  */
-#if TARGET_OS_MAC && !TARGET_OS_IPHONE
 #include <mach-o/compact_unwind_encoding.h>
 #define UNWIND_ARM64_MODE_MASK                  0x0F000000
 #define UNWIND_ARM64_MODE_FRAMELESS             0x02000000
@@ -64,7 +63,6 @@
 #define UNWIND_ARM64_DWARF_SECTION_OFFSET       0x00FFFFFF
 #elif PLCF_COMPAT_HAS_UPDATED_OSX_SDK(MAC_OS_X_VERSION_10_8)
 # warning UNWIND_ARM64_* constants are now defined by the minimum supported Mac SDK. Please remove this define.
-#endif
 
 /* CPU type/subtype constants */
 #ifndef CPU_SUBTYPE_ARM_V7S
